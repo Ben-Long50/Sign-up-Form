@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Join the War Effort!</title>
+</head>
+<body>
+    <div id="logo-tile">
+        <img src="" alt="Logo">
+    </div>
+    <div id="information-tile">
+        <div id="statement">
+            <h1>Your Castle Needs You!</h1>
+            <p>Local countrymen, your fiefdom lay under seige. Enlist in the militia, take up your call to arms and fight for the glory of your king!</p>
+            <p>Fill out the information below and await further instructions. The fate of the kingdom lay in your hands.</p>
+        </div>
+        <form action="/volunteers-list.txt" method="post">
+            <div class="form-row">
+                <div class="input-block">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name">
+                </div>
+                <div class="input-block">
+                    <label for="family_name">Family Name</label>
+                    <input type="text" name="family_name" id="family_name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-block">
+                    <label for="email_address">Email Address</label>
+                    <input type="email" name="email_address" id="email_address">
+                </div>
+                <div class="input-block">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="number" name="phone_number" id="phone_number">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-block">
+                    <label for="volunteer_password">Password</label>
+                    <input type="password" name="volunteer_password" id="volunteer_password">
+                </div>
+                <div class="input-block">
+                    <label for="password_confirmation">Confirm Password</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation">
+                </div>
+            </div>
+            <button type="submit">ENLIST</button>
+    </form>
+    </div>
+</body>
+</html>
