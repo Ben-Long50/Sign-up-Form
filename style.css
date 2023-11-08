@@ -28,9 +28,8 @@ body{
     background-color: var(--text-background);
     display: flex;
     flex-direction: column;
-    flex-basis: 55vw;
+    flex-basis: 50vw;
     justify-content: center;
-    align-items: flex-start;
     gap: 50px;
     padding-left: 10vw;
 }
@@ -52,16 +51,18 @@ label{
 }
 
 form{
+    --unselected-form-color: rgb(100, 100, 100);
     width: var(--content-width);
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 50px;
 }
 
 .form-row{
     display: flex;
     justify-content: space-between;
-    gap: 10%;
+    gap: 5vw;
 }
 
 .input-block{
@@ -70,10 +71,33 @@ form{
     gap: 5px;
 }
 
+label{
+    color: var(--unselected-form-color);
+}
+
 input{
     font-size: 20px;
-    color: white;
     background-color: var(--text-background);
-    border: solid white 2px;
+    border: solid var(--unselected-form-color) 1px;
     border-radius: 5px;
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: var(--text-background);
+}
+
+input:hover,
+input:focus{
+    background-color: var(--unselected-form-color);
+}
+
+input:focus{
+    color: white;
+    border: solid rgb(0, 110, 0) 3px;
+    outline: none;
 }
