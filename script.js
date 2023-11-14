@@ -7,6 +7,42 @@ const body = document.querySelector('body');
 const backgroundImage = document.querySelector('.background-image');
 const resetButton = document.getElementById('reset-button');
 
+passwordInput.addEventListener('input', function(){
+    if(!checkPasswords(passwordInput.value, passwordInputConfirmed.value)){
+        passwordInput.setCustomValidity('Passwords must match');
+        passwordInput.classList.remove('valid-input');
+        passwordInput.classList.add('invalid-input');
+        passwordInputConfirmed.classList.remove('valid-input');
+        passwordInputConfirmed.classList.add('invalid-input');
+    }
+    else{
+        passwordInput.setCustomValidity('');
+        passwordInputConfirmed.setCustomValidity('');
+        passwordInput.classList.remove('invalid-input');
+        passwordInput.classList.add('valid-input');
+        passwordInputConfirmed.classList.remove('invalid-input');
+        passwordInputConfirmed.classList.add('valid-input');
+    }
+})
+
+passwordInputConfirmed.addEventListener('input', function(){
+    if(!checkPasswords(passwordInput.value, passwordInputConfirmed.value)){
+        passwordInputConfirmed.setCustomValidity('Passwords must match');
+        passwordInputConfirmed.classList.remove('valid-input');
+        passwordInputConfirmed.classList.add('invalid-input');
+        passwordInput.classList.remove('valid-input');
+        passwordInput.classList.add('invalid-input');
+    }
+    else{
+        passwordInputConfirmed.setCustomValidity('');
+        passwordInput.setCustomValidity('');
+        passwordInputConfirmed.classList.remove('invalid-input');
+        passwordInputConfirmed.classList.add('valid-input');
+        passwordInput.classList.remove('invalid-input');
+        passwordInput.classList.add('valid-input');
+    }
+})
+
 inputs.forEach(input => {
     input.addEventListener('input', updateEnlistButtonColor);
 })
@@ -15,15 +51,27 @@ inputs.forEach(input => {
     input.addEventListener('input', checkValidation);
 })
 
+inputs.forEach(input => {
+    input.addEventListener('focus', highlightLabel);
+})
+
+inputs.forEach(input => {
+    input.addEventListener('blur', unhighlightLabel);
+})
+
 select.addEventListener('input', function(){
     if(select.checkValidity()){
         select.classList.add('valid-input');
     }
 })
 
+select.addEventListener('focus', highlightLabel);
+select.addEventListener('blur', unhighlightLabel);
+select.addEventListener('input', updateEnlistButtonColor);
+
 function updateEnlistButtonColor(){
     const allInputsValid = Array.from(inputs).every(input => input.checkValidity())
-    if (allInputsValid){
+    if (allInputsValid === true && select.selectedIndex > 0){
         enlistButton.classList.add('validated-enlist-button');
     } 
     else{
@@ -42,25 +90,19 @@ function checkValidation(){
     }
 }
 
-passwordInput.addEventListener('input', function(){
-    if(!checkPasswords(passwordInput.value, passwordInputConfirmed.value)){
-        passwordInput.setCustomValidity('Passwords must match');
-    }
-    else{
-        passwordInput.setCustomValidity('');
-        passwordInputConfirmed.setCustomValidity('');
-    }
-})
+function highlightLabel(e){
+    const currentId = e.target.id
+    console.log(currentId);
+    const currentLabel = document.querySelector(`label[for=${currentId}]`);
+    currentLabel.classList.add('selected-label');
+}
 
-passwordInputConfirmed.addEventListener('input', function(){
-    if(!checkPasswords(passwordInput.value, passwordInputConfirmed.value)){
-        passwordInputConfirmed.setCustomValidity('Passwords must match');
-    }
-    else{
-        passwordInputConfirmed.setCustomValidity('');
-        passwordInput.setCustomValidity('');
-    }
-})
+function unhighlightLabel(e){
+    const currentId = e.target.id
+    console.log(currentId);
+    const currentLabel = document.querySelector(`label[for=${currentId}]`);
+    currentLabel.classList.remove('selected-label');
+}
 
 function checkPasswords(firstPasswordInput, secondPasswordInput){
     return firstPasswordInput === secondPasswordInput;
@@ -80,4 +122,5 @@ resetButton.addEventListener('click', function(){
     })
     select.classList.remove('valid-input');
     select.classList.remove('invalid-input');
+    enlistButton.classList.remove('validated-enlist-button');
     })
