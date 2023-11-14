@@ -131,7 +131,13 @@ form{
     --form-border: solid var(--unselected-form-color) 1.5px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 75px;
+}
+
+.input-area{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .form-row{

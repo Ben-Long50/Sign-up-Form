@@ -21,43 +21,45 @@
             <p>Fill out the information below and await further instructions. The fate of the kingdom rests in your hands.</p>
         </div>
         <form action="/volunteers-list" method="post">
-            <div class="form-row">
-                <div class="input-block">
-                    <label for="first_name">First Name</label>
-                    <input type="text" id="first_name" name="first_name" required>
+            <div class="input-area">
+                <div class="form-row">
+                    <div class="input-block">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="family_name">Family Name</label>
+                        <input type="text" name="family_name" id="family_name" required>
+                    </div>
                 </div>
-                <div class="input-block">
-                    <label for="family_name">Family Name</label>
-                    <input type="text" name="family_name" id="family_name" required>
+                <div class="form-row">
+                        <div class="input-block">
+                            <label for="title">Title</label>
+                            <select name="title" id="title" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="paladin">Paladin</option>
+                                <option value="watchman">Watchman</option>
+                                <option value="knight">Knight</option>
+                                <option value="squire">Squire</option>
+                                <option value="scout">Scout</option>
+                                <option value="peasant">Peasant</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    <div class="input-block">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="tel" name="phone_number" id="phone_number" minlength="10" required>
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="input-block">
-                    <label for="title">Title</label>
-                    <select name="title" id="title" required>
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="paladin">Paladin</option>
-                        <option value="watchman">Watchman</option>
-                        <option value="knight">Knight</option>
-                        <option value="squire">Squire</option>
-                        <option value="scout">Scout</option>
-                        <option value="peasant">Peasant</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="input-block">
-                    <label for="phone_number">Phone Number</label>
-                    <input type="tel" name="phone_number" id="phone_number" minlength="10" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="input-block">
-                    <label for="volunteer_password">Password</label>
-                    <input type="password" name="volunteer_password" id="volunteer_password" required>
-                </div>
-                <div class="input-block">
-                    <label for="password_confirmation">Confirm Password</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" required>
+                <div class="form-row">
+                    <div class="input-block">
+                        <label for="volunteer_password">Password</label>
+                        <input type="password" name="volunteer_password" id="volunteer_password" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="password_confirmation">Confirm Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" required>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
